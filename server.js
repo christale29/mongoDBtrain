@@ -1,19 +1,23 @@
-const express = require("express");
-const mongoose = require ('mongoose')
-const bodyParser = require ('body-parser')
-const staffRoute = require('./src/routes/staff')
+// const express = require("express");
+// const mongoose = require ('mongoose')
+// const bodyParser = require ('body-parser')
+// const staffRoute = require('./src/routes/staff')
+
+const express = require('express')
+const app = express()
+const mongoose = require('mongoose')
+const staffRouter = require('./src/routes/staff')
 const dotenv = require('dotenv')
 dotenv.config();
 
 
 
+app.use(express.json()) 
+app.use('/',staffRouter)
 
-const app = express();
-app.use(bodyParser.json());
-app.use('/data',staffRoute)
-app.get('/',(req,res)=>{
-    res.send("this is API")
-})
+// app.get('/',(req,res)=>{
+//     res.send("this is API")
+// })
 const dburl=process.env.DATABASEURL;
 
 

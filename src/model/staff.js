@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
- const staffSchema = mongoose.Schema(
+ const StaffSchema =new mongoose.Schema(
         {
             firstName:String,
             lastName:String,
@@ -15,6 +15,5 @@ const mongoose = require('mongoose')
             },
         }
     )
-    const staff = mongoose.model('staff',staffSchema)
 
-module.exports = staff
+module.exports =  mongoose.model('staff',StaffSchema)
